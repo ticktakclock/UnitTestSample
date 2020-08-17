@@ -22,7 +22,7 @@ val myModule = module {
     }
     single<UserRepository> { UserRepositoryImpl(get()) }
     single<ProjectRepository> { ProjectRepositoryImpl(get()) }
-//    single(named("userId")) { "ticktakclock" }
-    viewModel { UserViewModel(get()) }
-    viewModel { ProjectListViewModel(get()) }
+    single<DispatcherProvider> { DispatcherProviderImpl() }
+    viewModel { UserViewModel(get(), get()) }
+    viewModel { ProjectListViewModel(get(), get()) }
 }
